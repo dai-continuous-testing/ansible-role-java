@@ -151,13 +151,20 @@
     owner: "{{ ansible_user_id }}"
   become: yes
 
+- name: check current state of legacy java home
+  stat:
+    path: "{{ legacy_java_home }}"
+  register: legacy_java_home_stat
+  become: yes
+
+# leave any pre-existing legacy install (real dir or symlink) untouched; only link if nothing is there
 - name: link legacy java home to current java installation
   file:
     src: "{{ java_home }}"
     dest: "{{ legacy_java_home }}"
     state: link
-    force: yes
   become: yes
+  when: not legacy_java_home_stat.stat.exists
 
 
 # set java to global environment path
