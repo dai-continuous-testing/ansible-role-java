@@ -9,15 +9,9 @@ java_download_filename: "OpenJDK{{ java_major_version }}U-jre_{{ java_arch }}_ma
 
 java_relative_path: "java/osx"
 
-# java_installation_folder: "{{ installation_root_folder }}/jre"
-java_installation_folder: "/usr/local/share/experitest"
-
-# Old location, kept in sync via symlink for anything still referencing it.
-legacy_java_installation_folder: "{{ installation_root_folder }}/jre"
+java_installation_folder: "{{ installation_root_folder }}/jre"
 
 java_home: "{{ java_installation_folder }}/jdk{{ java_version }}-jre"
-
-legacy_java_home: "{{ legacy_java_installation_folder }}/jdk{{ java_version }}-jre"
 
 java_bin: "{{ java_home }}/Contents/Home/bin/java"
 
