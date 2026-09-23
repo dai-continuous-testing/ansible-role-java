@@ -142,30 +142,6 @@
 
   when: not java_exists.stat.exists or java_needs_replacement | default(false)
 
-# keep the JRE reachable at the legacy path too, for anything still hardcoded to it
-
-- name: make sure legacy java installation folder exists
-  file:
-    path: "{{ legacy_java_installation_folder }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-  become: yes
-
-- name: check current state of legacy java home
-  stat:
-    path: "{{ legacy_java_home }}"
-  register: legacy_java_home_stat
-  become: yes
-
-# leave any pre-existing legacy install (real dir or symlink) untouched; only link if nothing is there
-- name: link legacy java home to current java installation
-  file:
-    src: "{{ java_home }}"
-    dest: "{{ legacy_java_home }}"
-    state: link
-  become: yes
-  when: not legacy_java_home_stat.stat.exists
-
 
 # set java to global environment path
 
