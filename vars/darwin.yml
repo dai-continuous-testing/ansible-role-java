@@ -9,7 +9,8 @@ java_download_filename: "OpenJDK{{ java_major_version }}U-jre_{{ java_arch }}_ma
 
 java_relative_path: "java/osx"
 
-java_installation_folder: "{{ installation_root_folder }}/jre"
+# java_installation_folder: "{{ installation_root_folder }}/jre"
+java_installation_folder: "/usr/local/share/experitest"
 
 java_home: "{{ java_installation_folder }}/jdk{{ java_version }}-jre"
 
