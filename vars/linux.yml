@@ -7,6 +7,10 @@ __installation_root_folder: "/opt/Experitest"
 # /var/tmp  - temp folder that is preservered after reboot
 temp_folder: /var/tmp/Experitest
 
+# CVE-2026-114938 (Java4Shell): Linux x64 uses the fixed Temurin build. Windows/macOS keep
+# the default in defaults/main.yml until Adoptium publishes their .1 builds.
+__java_version: "25.0.5.1_2"
+
 java_download_filename: "OpenJDK{{ java_major_version }}U-jre_x64_linux_hotspot_{{ java_version }}.tar.gz"
 
 java_relative_path: "java/linux"
