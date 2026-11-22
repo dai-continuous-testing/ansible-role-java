@@ -6,8 +6,6 @@ temp_folder: "/tmp/experitest"
 
 java_arch: "{{ 'aarch64' if ansible_architecture == 'arm64' else ('x64' if ansible_architecture == 'x86_64' else ansible_architecture) }}"
 
-# CVE-2026-114938 (Java4Shell): macOS uses the fixed Temurin build.
-__java_version: "25.0.5.1_2"
 
 java_download_filename: "OpenJDK{{ java_major_version }}U-jre_{{ java_arch }}_mac_hotspot_{{ java_version }}.tar.gz"
 
